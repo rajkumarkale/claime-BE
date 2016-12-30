@@ -3,6 +3,6 @@ var mongoLab='mongodb://claime:claime@ds145148.mlab.com:45148/claim'
 module.exports = {
 
     'secret': 'smartsolutions',
-    'database':localDb || mongoLab
+    'database': mongoLab || localDb
 
 };
