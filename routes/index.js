@@ -8,13 +8,14 @@ Users = require('./../config/userModal');
 
 
 // Get all ther users
-router.get('/api/user', function (req, res) {
+router.get('/api/user', function (req, res, next) {
   Users.getUsers(function (err, users) {
     if (err) {
       throw err
     }
     res.json(users);
-  })
+  });
+  next();
 })
 
 
@@ -31,13 +32,14 @@ router.post('/api/user', function (req, res) {
       res.end();
     }
     res.send(user);
-  })
+  });
+  next();
 })
 
 
 
 // Login
-router.post('/api/login', function (req, res) {
+router.post('/api/login', function (req, res, next) {
   var email = req.body.email;
   Users.getUsersByEmail(req.body.email, function (err, users) {
     if (err) {
@@ -49,7 +51,7 @@ router.post('/api/login', function (req, res) {
 
 
   })
-
+  next();
 })
 
 

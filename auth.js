@@ -31,6 +31,8 @@ app.set('superSecret', config.secret);
 
 // //Authenticate user
 router.post('/login', function (req, res) {
+    // var test = JSON.parse(req.body);
+    // console.log(test);
     Users.getUsersByEmail(req.body.email, function (err, users) {
         if (err) {
             console.lo(err)
@@ -56,4 +58,4 @@ router.post('/login', function (req, res) {
     })
 })
 
-module.exports=router;
+module.exports = router;
